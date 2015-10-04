@@ -1,4 +1,6 @@
-# electron-block-screensaver-example
+![image](./media/logo.jpg)
+
+# Blocky
 
 **Wanna read something and don't want to be interrupted?**
 
@@ -6,9 +8,15 @@
 
 This is an example project to show how to use the `Tray` module and prevent your machine to go into screensaver or sleep mode.
 
-`electron-block-screensaver` will put itself inside of your menu bar and give you an easy way to not interupts you by going into sleep or screensave mode.
+Blocky will put itself inside of your menu bar and give you an easy way to not interupts you by going into sleep or screensave mode.
 
-![image](./media/screenshot.jpg)
+### MacOS
 
-![image](./media/screenshot_active.jpg)
+![image](./media/screenshot_macos.jpg)
+
+### Windows
+
+- will add it later
+
+
 
