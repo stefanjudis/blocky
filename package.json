@@ -1,5 +1,5 @@
 {
-  "name": "electron-block-screensaver-example",
+  "name": "blocky",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,11 +9,11 @@
     "clean:osx": "rm -rf ./dist/osx",
     "clean:win": "rm -rf ./dist/win",
     "build": "npm run clean && npm run build:osx && npm run build:win",
-    "build:osx": "npm run clean:osx && electron-packager . \"Dont Sleep\" --out=dist/osx --platform=darwin --arch=x64 --version=0.33.1 --icon=media/icon.icns --ignore=\"(node_modules|dist)\"",
-    "build:win": "npm run clean:win && electron-packager . \"Dont Sleep\" --out=dist/win --platform=win32 --arch=ia32 --version=0.33.1 --icon=media/icon.ico --ignore=\"(node_modules|dist)\"",
+    "build:osx": "npm run clean:osx && electron-packager . \"Blocky\" --out=dist/osx --platform=darwin --arch=x64 --version=0.33.1 --icon=media/icon.icns --ignore=\"(node_modules|dist)\"",
+    "build:win": "npm run clean:win && electron-packager . \"Blocky\" --out=dist/win --platform=win32 --arch=ia32 --version=0.33.1 --icon=media/icon.ico --ignore=\"(node_modules|dist)\"",
     "pack": "npm run pack:osx && npm run pack:win",
-    "pack:osx": "npm run build:osx && electron-builder \"dist/osx/Dont Sleep-darwin-x64/Dont Sleep.app\" --platform=osx --out=\"dist/osx\" --config=packager.json",
-    "pack:win": "npm run build:win && electron-builder \"dist/win/Dont Sleep-win32-ia32\" --platform=win --out=\"dist/win\" --config=packager.json"
+    "pack:osx": "npm run build:osx && electron-builder \"dist/osx/Blocky-darwin-x64/Blocky.app\" --platform=osx --out=\"dist/osx\" --config=packager.json",
+    "pack:win": "npm run build:win && electron-builder \"dist/win/Blocky-win32-ia32\" --platform=win --out=\"dist/win\" --config=packager.json"
   },
   "repository": {
     "type": "git",
