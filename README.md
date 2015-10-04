@@ -1,4 +1,4 @@
-![image](./media/logo.jpg)
+![image](./media/logo.png)
 
 # Blocky
 
@@ -17,6 +17,3 @@ Blocky will put itself inside of your menu bar and give you an easy way to not i
 ### Windows
 
 - will add it later
-
-
-
