@@ -8,7 +8,7 @@
 
 This is an example project to show how to use the `Tray` module and prevent your machine to go into screensaver or sleep mode.
 
-Blocky will put itself inside of your menu bar and give you an easy way to not interupts you by going into sleep or screensave mode.
+Blocky will put itself inside of your menu bar and give you an easy way to not interupt you by going into sleep or screensave mode.
 
 ### MacOS
 
@@ -16,4 +16,9 @@ Blocky will put itself inside of your menu bar and give you an easy way to not i
 
 ### Windows
 
-- will add it later
+-
+
+
+## Installation
+
+Download the installer listed on the [releases](https://github.com/stefanjudis/blocky/releases) page and simply install it.
