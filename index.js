@@ -25,10 +25,12 @@ const icons = {
 const menus = {
   active    : Menu.buildFromTemplate( [
     { label: 'Time for sleeping again', click : toggleSleepPermission },
+    { type: 'separator' },
     { label: 'Quit', click : app.quit }
   ] ),
   notActive : Menu.buildFromTemplate( [
     { label: 'Don\'t go to sleep', click : toggleSleepPermission },
+    { type: 'separator' },
     { label: 'Quit', click : app.quit }
   ] )
 };
