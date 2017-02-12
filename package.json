@@ -1,22 +1,15 @@
 {
   "name": "blocky",
+  "build": {
+    "appId": "com.electron.blocky"
+  },
   "version": "1.0.0",
-  "description": "",
+  "description": "A tray app to block the screensaver",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-
-    "clean": "rm -rf ./dist",
-    "clean:osx": "rm -rf ./dist/osx",
-    "clean:win": "rm -rf ./dist/win",
-
-    "pack": "npm run clean && npm run pack:osx && npm run pack:win",
-    "pack:osx": "npm run clean:osx && electron-packager . \"Blocky\" --out=dist/osx --platform=darwin --arch=x64 --version=0.36.1 --icon=media/icon.icns --ignore=\"(node_modules|dist)\"",
-    "pack:win": "npm run clean:win && electron-packager . \"Blocky\" --out=dist/win --platform=win32 --arch=ia32 --version=0.36.1 --icon=media/icon.ico --ignore=\"(node_modules|dist)\"",
-
-    "build": "npm run build:osx && npm run build:win",
-    "build:osx": "npm run pack:osx && electron-builder \"dist/osx/Blocky-darwin-x64/Blocky.app\" --platform=osx --out=\"dist/osx\" --config=builder.json",
-    "build:win": "npm run pack:win && electron-builder \"dist/win/Blocky-win32-ia32\" --platform=win --out=\"dist/win\" --config=builder.json"
+    "pack": "build --dir",
+    "dist": "build"
   },
   "repository": {
     "type": "git",
@@ -29,8 +22,7 @@
   },
   "homepage": "https://github.com/stefanjudis/electron-block-screensaver-example#readme",
   "devDependencies": {
-    "electron-builder": "^2.6.0",
-    "electron-packager": "^5.1.0",
-    "electron-prebuilt": "^0.33.1"
+    "electron": "^1.4.15",
+    "electron-builder": "^13.5.0"
   }
 }

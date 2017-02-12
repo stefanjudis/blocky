@@ -1,15 +1,9 @@
 'use strict';
 
-require( 'crash-reporter' ).start();
+const { app, Menu, Tray, powerSaveBlocker } = require( 'electron' );
+const path = require( 'path' );
 
-const path             = require( 'path' );
-const app              = require( 'app' );
-const Menu             = require( 'menu' );
-const Tray             = require( 'tray' );
-const NativeImage      = require( 'native-image' );
-const powerSaveBlocker = require( 'power-save-blocker' );
-
-let appIcon        = null;
+let appTray        = null;
 let currentBlocker = null;
 
 /**
@@ -17,9 +11,9 @@ let currentBlocker = null;
  *
  * @type {Object}
  */
-let icons = {
-  active    : NativeImage.createFromPath( path.join( __dirname, 'media', 'icon_active.png' ) ),
-  notActive : NativeImage.createFromPath( path.join( __dirname, 'media', 'icon.png' ) )
+const icons = {
+  active    : path.join( __dirname, 'media', 'icon_active.png' ) ,
+  notActive : path.join( __dirname, 'media', 'icon.png' )
 }
 
 
@@ -28,7 +22,7 @@ let icons = {
  *
  * @type {Object}
  */
-let menus = {
+const menus = {
   active    : Menu.buildFromTemplate( [
     { label: 'Time for sleeping again', click : toggleSleepPermission },
     { label: 'Quit', click : app.quit }
@@ -52,9 +46,9 @@ function initTray() {
     app.dock.hide();
   }
 
-  appIcon = new Tray( path.resolve( __dirname, 'media', 'icon.png' ) );
-  appIcon.setToolTip( 'Block screensaver' );
-  appIcon.setContextMenu( menus.notActive );
+  appTray = new Tray( path.resolve( __dirname, 'media', 'icon.png' ) );
+  appTray.setToolTip( 'Block screensaver' );
+  appTray.setContextMenu( menus.notActive );
 }
 
 
@@ -62,17 +56,17 @@ function initTray() {
  * Toggle sleep blocking functionality
  */
 function toggleSleepPermission() {
+  let state;
+
   if ( currentBlocker === null ) {
     currentBlocker = powerSaveBlocker.start( 'prevent-display-sleep' );
-
-    appIcon.setContextMenu( menus.active );
-    appIcon.setImage( icons.active );
+    state = 'active';
   } else {
     powerSaveBlocker.stop( currentBlocker );
-
     currentBlocker = null;
-
-    appIcon.setContextMenu( menus.notActive );
-    appIcon.setImage( icons.notActive );
+    state = 'notActive';
   }
+
+  appTray.setContextMenu( menus[ state ] );
+  appTray.setImage( icons[ state ] );
 }
